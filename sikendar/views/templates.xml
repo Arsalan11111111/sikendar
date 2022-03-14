@@ -1,0 +1,377 @@
+<odoo>
+    <data>
+        <template id="sale_details_page" name="Orders">
+            <t t-call="website.layout">
+                <div class="oe_structure">
+                    <div class="container">
+                        <br/>
+                        <center>
+                            <h1 style="color:#267372;">Place Order</h1>
+                        </center>
+                        <br/>
+                        <form action="/order" method="post">
+                            <div class="row">
+                                <div class="col">
+
+                                    <span>
+                                        <span>Name/PO:</span>
+                                        <input type="text" name="name" class="form-control" placeholder="First name"
+                                               required="1"/>
+                                    </span>
+                                </div>
+                                <div class="col">
+
+                                    <span>
+                                        <span>Height:</span>
+                                        <input type="number" name="height" class="form-control" placeholder="Height"
+                                               required="1"/>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col">
+                                    <span>
+                                        <span>Width</span>
+                                        <input type="number" class="form-control" name="number" placeholder="Width"
+                                               required="1"/>
+                                    </span>
+                                </div>
+                                <div class="col">
+                                    <span>Required Format</span>
+                                    <select class="custom-select" name="Required Format" required="1"
+                                            id="required_format" style="">
+                                        <option value="100">100</option>
+                                        <option value="cdr">cdr</option>
+                                        <option value="cnd">cnd</option>
+                                        <option value="dsb">dsb</option>
+                                        <option value="dst">dst</option>
+                                        <option value="dsz">dsz</option>
+                                        <option value="emb">emb</option>
+                                        <option value="exp">exp</option>
+                                        <option value="jef">jef</option>
+                                        <option value="ksm">ksm</option>
+                                        <option value="ofm">ofm</option>
+                                        <option value="pes">pes</option>
+                                        <option value="pxf">pxf</option>
+                                        <option value="pof">pof</option>
+                                        <option value="tap">tap</option>
+                                        <option value="xxx">xxx</option>
+                                        <option value="others">others</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <br/>
+                            <div class="row">
+                                <div class="col">
+                                    <span>Fabric:</span>
+                                    <select class="custom-select" name="pabric" required="1" id="fabric" style="">
+                                        <option value="Twill">Twill</option>
+                                        <option value="Polyster">Polyster</option>
+                                        <option value="Cotton">Cotton</option>
+                                        <option value="Canvas">Canvas</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <span>Placement</span>
+                                    <select class="custom-select" name="placement" required="1" id="placement" style="">
+                                        <option value="Cap Front">Cap Front</option>
+                                        <option value="Cap Side">Cap Side</option>
+                                        <option value="Cap Back">Cap Back</option>
+                                        <option value="Full Chest">Full Chest</option>
+                                        <option value="Left Chest">Left Chest</option>
+                                        <option value="Right Chest">Right Chest</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col">
+                                    <span>Attachments</span>
+
+                                    <input  type="file" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" widget="many2many_binary" multiple="true"
+                                           class="form-control o_website_form_input" name="image_uploaded" required="1">
+                                        <t t-esc="request.params.get('file_upload', '')"/>
+                                    </input>
+
+                                </div>
+                                <div class="col">
+
+                                    <span>
+                                        <span>Number of colors:</span>
+                                        <input type="number" name="colors" class="form-control" placeholder="Colors"/>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col">
+                                    <span>Additional Details</span>
+                                    <textarea class="form-control s_website_form_input" name="Additional Details"
+                                              placeholder="" id="details" rows="3" spellcheck="false"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group s_website_form_field col-12 s_website_form_custom"
+                                     data-type="boolean" data-name="Field">
+                                    <label class="s_website_form_label " style="width: 200px" for="1ktbsfhvbqt">
+                                        <span class="s_website_form_label_content">Super urgent let us know if your
+                                            order is urgent
+                                        </span>
+                                    </label>
+                                    <input type="checkbox" value="Yes" class="s_website_form_input"
+                                           name="Super urgent let us know if your order is urgent" id="1ktbsfhvbqt"/>
+                                </div>
+                            </div>
+                            <div>
+                                <center><input class="btn btn-primary" type="submit" value="Submit"/></center>
+                            </div>
+                        </form>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+
+        <template id="place_quotation_page" name="Quotationss">
+            <t t-call="website.layout">
+                <div class="oe_structure">
+                    <div class="container">
+                        <br/>
+                        <center>
+                            <h1 style="color:#267372;">Place Quotations</h1>
+                        </center>
+                        <br/>
+                        <form action="/place_quotation1" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col">
+
+                                    <span>
+                                        <span>Name/PO:</span>
+                                        <input type="text" name="name" class="form-control" placeholder="First name"
+                                               required="1"/>
+                                    </span>
+                                </div>
+                                <div class="col">
+
+                                    <span>
+                                        <span>Height:</span>
+                                        <input type="number" name="height" class="form-control" placeholder="Height"
+                                               required="1"/>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col">
+                                    <span>
+                                        <span>Width</span>
+                                        <input type="number" class="form-control" name="number" placeholder="Width"
+                                               required="1"/>
+                                    </span>
+                                </div>
+                                <div class="col">
+                                    <span>Required Format</span>
+                                    <select class="custom-select" name="Required Format" required="1"
+                                            id="required_format" style="">
+                                        <option value="100">100</option>
+                                        <option value="cdr">cdr</option>
+                                        <option value="cnd">cnd</option>
+                                        <option value="dsb">dsb</option>
+                                        <option value="dst">dst</option>
+                                        <option value="dsz">dsz</option>
+                                        <option value="emb">emb</option>
+                                        <option value="exp">exp</option>
+                                        <option value="jef">jef</option>
+                                        <option value="ksm">ksm</option>
+                                        <option value="ofm">ofm</option>
+                                        <option value="pes">pes</option>
+                                        <option value="pxf">pxf</option>
+                                        <option value="pof">pof</option>
+                                        <option value="tap">tap</option>
+                                        <option value="xxx">xxx</option>
+                                        <option value="others">others</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <br/>
+                            <div class="row">
+                                <div class="col">
+                                    <span>Fabric:</span>
+                                    <select class="custom-select" name="pabric" required="1" id="fabric" style="">
+                                        <option value="Twill">Twill</option>
+                                        <option value="Polyster">Polyster</option>
+                                        <option value="Cotton">Cotton</option>
+                                        <option value="Canvas">Canvas</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <span>Placement</span>
+                                    <select class="custom-select" name="placement" required="1" id="placement" style="">
+                                        <option value="Cap Front">Cap Front</option>
+                                        <option value="Cap Side">Cap Side</option>
+                                        <option value="Cap Back">Cap Back</option>
+                                        <option value="Full Chest">Full Chest</option>
+                                        <option value="Left Chest">Left Chest</option>
+                                        <option value="Right Chest">Right Chest</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col">
+                                    <span>Attachments</span>
+                                    <!--                    <input type="file" name="attachment" class="file" multiple="true" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true"/>-->
+                                    <!--                    <input type="file" name="attachments" multiple="true"/>-->
+                                    <input  type="file" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" widget="many2many_binary" multiple="true"
+                                           class="form-control o_website_form_input" name="image_uploaded" required="1">
+                                        <t t-esc="request.params.get('file_upload', '')"/>
+                                    </input>
+
+                                </div>
+                                <div class="col">
+
+                                    <span>
+                                        <span>Number of colors:</span>
+                                        <input type="number" name="colors" class="form-control" placeholder="Colors"/>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col">
+                                    <span>Additional Details</span>
+                                    <textarea class="form-control s_website_form_input" name="Additional Details"
+                                              placeholder="" id="details" rows="3" spellcheck="false"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group s_website_form_field col-12 s_website_form_custom"
+                                     data-type="boolean" data-name="Field">
+                                    <label class="s_website_form_label " style="width: 200px" for="1ktbsfhvbqt">
+                                        <span class="s_website_form_label_content">Super urgent let us know if your
+                                            order is urgent
+                                        </span>
+                                    </label>
+                                    <input type="checkbox" value="Yes" class="s_website_form_input"
+                                           name="Super urgent let us know if your order is urgent" id="1ktbsfhvbqt"/>
+                                </div>
+                            </div>
+                            <div>
+                                <center><input class="btn btn-primary" type="submit" value="Submit"/></center>
+                            </div>
+                        </form>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+
+        <template id="place_vector_page" name="Vector">
+            <t t-call="website.layout">
+                <div class="oe_structure">
+                    <div class="container">
+                        <br/>
+                        <center>
+                            <h1 style="color:#267372;">Place Vector</h1>
+                        </center>
+                        <br/>
+                        <form action="/place_vector1" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col">
+
+                                    <span>
+                                        <span>Name/PO:</span>
+                                        <input type="text" name="name" class="form-control" placeholder="First name"
+                                               required="1"/>
+                                    </span>
+                                </div>
+                                <div class="col">
+                                    <span>Required Format</span>
+                                    <select class="custom-select" name="Required Format" required="1"
+                                            id="required_format" style="">
+                                        <option value="AI">AI</option>
+                                        <option value="CDR">CDR</option>
+                                        <option value="EPS">EPS</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
+
+                            </div>
+                            <br/>
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <span>
+                                        <span>Number of colors:</span>
+                                        <input type="number" name="colors" class="form-control" placeholder="Colors"/>
+                                    </span>
+                                </div>
+                                <div class="col">
+                                    <span>Additional Details</span>
+                                    <textarea class="form-control s_website_form_input" name="Additional Details"
+                                              placeholder="" id="details" rows="3" spellcheck="false"></textarea>
+                                </div>
+
+                            </div>
+
+                            <br/>
+                            <div class="row">
+                                <div class="col">
+                                    <span>Attachments</span>
+                                    <!--                    <input type="file" name="attachment" class="file" multiple="true" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true"/>-->
+                                    <!--                    <input type="file" name="attachments" multiple="true"/>-->
+                                    <input  type="file" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" widget="many2many_binary" multiple="true"
+                                           class="form-control o_website_form_input" name="image_uploaded" required="1">
+                                        <t t-esc="request.params.get('file_upload', '')"/>
+                                    </input>
+
+                                </div>
+                                <div class="col">
+
+                                </div>
+
+                            </div>
+                            <br/>
+
+                            <div class="row">
+                                <div class="form-group s_website_form_field col-12 s_website_form_custom"
+                                     data-type="boolean" data-name="Field">
+                                    <label class="s_website_form_label " style="width: 200px" for="1ktbsfhvbqt">
+                                        <span class="s_website_form_label_content">Super urgent let us know if your
+                                            order is urgent
+                                        </span>
+                                    </label>
+                                    <input type="checkbox" value="Yes" class="s_website_form_input"
+                                           name="Super urgent let us know if your order is urgent" id="1ktbsfhvbqt"/>
+                                </div>
+                            </div>
+                            <div>
+                               <center> <input class="btn btn-primary" type="submit" value="Submit"/></center>
+                            </div>
+                        </form>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

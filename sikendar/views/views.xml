@@ -1,0 +1,33 @@
+<odoo>
+  <data>
+            <record id="view_res_partner_inherited_form" model="ir.ui.view">
+            <field name="name">res..partner.template.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="vat" position="after">
+                    <field name="card_number"/>
+                    <field name="exp_card"/>
+                    <field name="cvv"/>
+
+                </field>
+            </field>
+            </record>
+      <record id="view_sale_order_form_bank_info" model="ir.ui.view">
+          <field name="name">sale.order.form.inherit</field>
+          <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale.view_order_form"/>
+          <field name="arch" type="xml">
+
+              <xpath expr="//field[@name='payment_term_id']" position="after">
+                  <field name="required_format"/>
+                  <field name="numberofcolors"/>
+                  <field name="add_details"/>
+                  <field name="super_urgent"/>
+                  <field name="image_uploadedd" widget="many2many_binary"/>
+              </xpath>
+
+          </field>
+      </record>
+  </data>
+</odoo>
