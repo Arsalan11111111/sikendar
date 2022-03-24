@@ -8,7 +8,7 @@ from datetime import datetime
 import re
 class MyModule(http.Controller):
 
-    @http.route('/hotel', type='http', auth='public', website=True)
+    @http.route('/hotel', type='http', auth='user', website=True)
     def sale_details(self, **kwargs):
         rooms = request.env['res.partner'].sudo().search([])
         return request.render('sikendar.sale_details_page', {'room': rooms,'description':rooms})

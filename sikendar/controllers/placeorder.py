@@ -8,12 +8,12 @@ from datetime import datetime
 import re
 
 class MyModule(http.Controller):
-    @http.route('/place_quotation', type='http', auth='public', website=True)
+    @http.route('/place_quotation', type='http', auth='user', website=True)
     def sale_detailss(self, **kwargs):
         rooms = request.env['res.partner'].sudo().search([])
         return request.render('sikendar.place_quotation_page', {'room': rooms,'description':rooms})
 
-    @http.route('/place_vector', type='http', auth='public', website=True)
+    @http.route('/place_vector', type='http', auth='user', website=True)
     def vector_detailss(self, **kwargs):
         rooms = request.env['res.partner'].sudo().search([])
         return request.render('sikendar.place_vector_page', {'room': rooms,'description':rooms})
