@@ -29,9 +29,10 @@ class MyModule(http.Controller):
                 check = False
         except:
             check = False
+        partner = request.env['res.users'].search([('id', '=', request.session.uid)])
         sale = request.env['sale.order'].create({
             'name': "Order/" + str(number),
-            'partner_id': 1,
+            'partner_id': partner.partner_id.id,
             'height':kw['height'] or 0,
             'width':kw['number'] or 0,
             'fabric':kw['pabric'] or '',

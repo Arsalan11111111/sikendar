@@ -36,9 +36,11 @@ class MyModule(http.Controller):
                 check = False
         except:
             check = True
+        partner = request.env['res.users'].search([('id', '=', request.session.uid)])
+
         sale = request.env['sale.order'].create({
             'name': "Quotation/" + str(number),
-            'partner_id': 1,
+            'partner_id': partner.partner_id.id,
             'height':kw['height'] or 0,
             'width':kw['number'] or 0,
             'fabric':kw['pabric'] or '',
@@ -88,9 +90,11 @@ class MyModule(http.Controller):
                 check = False
         except:
             check = True
+        partner = request.env['res.users'].search([('id', '=', request.session.uid)])
+
         sale = request.env['sale.order'].create({
             'name': "Vector/"+str(number),
-            'partner_id': 1,
+            'partner_id': partner.partner_id.id,
             'required_format': kw['Required Format'] or '',
             'numberofcolors':kw['colors'],
             'add_details':kw['Additional Details'] or '',
