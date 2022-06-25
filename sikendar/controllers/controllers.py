@@ -32,6 +32,7 @@ class MyModule(http.Controller):
         partner = request.env['res.users'].search([('id', '=', request.session.uid)])
         sale = request.env['sale.order'].create({
             'name': "Order/" + str(number),
+            'design_name': kw['name'],
             'partner_id': partner.partner_id.id,
             'height':kw['height'] or 0,
             'width':kw['number'] or 0,
@@ -41,6 +42,7 @@ class MyModule(http.Controller):
             'numberofcolors': kw['colors'],
             'add_details': kw['Additional Details'] or '',
             'super_urgent': check,
+            'order_type':"order"
 
         })
 

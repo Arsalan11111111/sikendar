@@ -41,6 +41,7 @@ class MyModule(http.Controller):
         sale = request.env['sale.order'].create({
             'name': "Quotation/" + str(number),
             'partner_id': partner.partner_id.id,
+            'design_name': kw['name'],
             'height':kw['height'] or 0,
             'width':kw['number'] or 0,
             'fabric':kw['pabric'] or '',
@@ -49,7 +50,7 @@ class MyModule(http.Controller):
             'numberofcolors': kw['colors'],
             'add_details': kw['Additional Details'] or '',
             'super_urgent': check,
-
+            'order_type':'quotation',
         })
 
         # image upload start
@@ -94,12 +95,13 @@ class MyModule(http.Controller):
 
         sale = request.env['sale.order'].create({
             'name': "Vector/"+str(number),
+            'design_name': kw['name'],
             'partner_id': partner.partner_id.id,
             'required_format': kw['Required Format'] or '',
             'numberofcolors':kw['colors'],
             'add_details':kw['Additional Details'] or '',
             'super_urgent': check,
-
+            'order_type':'vector'
         })
 
         #image upload start

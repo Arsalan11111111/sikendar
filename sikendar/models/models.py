@@ -16,6 +16,7 @@ class ProductTemplate(models.Model):
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
+    design_name = fields.Char("Design Name")
     image_uploadedd = fields.Many2many('ir.attachment', string="Image", attachment=True,store=True)
     required_format = fields.Char("Required Format")
     numberofcolors = fields.Integer("Number of colors")
@@ -30,6 +31,8 @@ class SaleOrder(models.Model):
                                ('Canvas', 'Canvas')],
                               string="Fabric",
                               default="Twill")
-
+    order_type =  fields.Selection([('order', 'Order'),
+                               ('vector', 'Vector'),
+                               ('quotation', 'quotation')])
 
     # fields.Many2many('ir.attachment', string="Image")
